@@ -62,37 +62,6 @@ class LoginController: UIViewController {
         
     }
     
-    
-    
-    
-    
-    @objc func handleRegister(){
-        guard let email = emailTextField.text, let password = passwordTextField.text, let name = nameTextField.text else {return}
-        
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
-            if error != nil{
-                print(error!)
-                
-            }else{
-                
-                guard let uid = user?.uid else {return}
-                let ref = Database.database().reference(fromURL: "https://chatsenger.firebaseio.com/")
-                let usersReference = ref.child("users").child(uid)
-                let values = ["name": name, "email": email]
-                usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
-                    if err != nil{
-                        print(err!)
-                        
-                    }else{
-                        self.dismiss(animated: true, completion: nil)
-                        print("Saved user successfully into Firebase db")
-                    }
-                })
-            }
-        }
-    }
-    
-    
     let nameTextField: UITextField = {
         
         let tf = UITextField()
@@ -145,11 +114,6 @@ class LoginController: UIViewController {
         return imageView
 
     }()
-    
-    
-    func handleSelectProfileImageView(){
-        
-    }
     
     lazy var loginRegisterSegmentedControl: UISegmentedControl = {
         

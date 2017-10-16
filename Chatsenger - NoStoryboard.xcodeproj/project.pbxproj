@@ -10,6 +10,7 @@
 		4D2E9BCE2995019C9BB1B7E1 /* Pods_Chatsenger___NoStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC79DA4CA8902410337E8730 /* Pods_Chatsenger___NoStoryboard.framework */; };
 		D13B4D381F94CC5700B4364D /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4D371F94CC5700B4364D /* NewMessageController.swift */; };
 		D13B4D3A1F94CFEA00B4364D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4D391F94CFEA00B4364D /* User.swift */; };
+		D13B4D3C1F94E2C700B4364D /* LoginController+handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4D3B1F94E2C700B4364D /* LoginController+handlers.swift */; };
 		D1D646F01F9486150010A541 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D646EF1F9486150010A541 /* AppDelegate.swift */; };
 		D1D646F21F9486150010A541 /* MessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D646F11F9486150010A541 /* MessagesController.swift */; };
 		D1D646F51F9486150010A541 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1D646F31F9486150010A541 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 		D0C5565A67D63D34E7BB91CC /* Pods-Chatsenger - NoStoryboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chatsenger - NoStoryboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chatsenger - NoStoryboard/Pods-Chatsenger - NoStoryboard.release.xcconfig"; sourceTree = "<group>"; };
 		D13B4D371F94CC5700B4364D /* NewMessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
 		D13B4D391F94CFEA00B4364D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D13B4D3B1F94E2C700B4364D /* LoginController+handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginController+handlers.swift"; sourceTree = "<group>"; };
 		D1D646EC1F9486150010A541 /* Chatsenger - NoStoryboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chatsenger - NoStoryboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D646EF1F9486150010A541 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1D646F11F9486150010A541 /* MessagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesController.swift; sourceTree = "<group>"; };
@@ -69,8 +71,9 @@
 			isa = PBXGroup;
 			children = (
 				D1D646F11F9486150010A541 /* MessagesController.swift */,
-				D1D647011F9487DC0010A541 /* LoginController.swift */,
 				D13B4D371F94CC5700B4364D /* NewMessageController.swift */,
+				D1D647011F9487DC0010A541 /* LoginController.swift */,
+				D13B4D3B1F94E2C700B4364D /* LoginController+handlers.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 			files = (
 				D13B4D381F94CC5700B4364D /* NewMessageController.swift in Sources */,
 				D1D646F21F9486150010A541 /* MessagesController.swift in Sources */,
+				D13B4D3C1F94E2C700B4364D /* LoginController+handlers.swift in Sources */,
 				D1D647021F9487DC0010A541 /* LoginController.swift in Sources */,
 				D13B4D3A1F94CFEA00B4364D /* User.swift in Sources */,
 				D1D646F01F9486150010A541 /* AppDelegate.swift in Sources */,
