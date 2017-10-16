@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginController: UIViewController {
     
@@ -21,16 +22,75 @@ class LoginController: UIViewController {
     }()
     
     
-    let loginRegisterButton: UIButton = {
+    lazy var loginRegisterButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(r: 80, g: 101, b: 161)
         button.setTitle("Register", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        
+        button.addTarget(self, action: #selector(handleLoginRegister), for: .touchUpInside)
+        
+        
+        
+        
+        
         return button
         
     }()
+    
+    @objc func handleLoginRegister(){
+        if loginRegisterSegmentedControl.selectedSegmentIndex == 0{
+            handleLogin()
+        }else{
+            handleRegister()
+        }
+        
+    }
+    
+    
+    @objc func handleLogin(){
+     guard let email = emailTextField.text, let password = passwordTextField.text else {return}
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            if error != nil{
+                print(error!)
+            }else{
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+        
+    }
+    
+    
+    
+    
+    
+    @objc func handleRegister(){
+        guard let email = emailTextField.text, let password = passwordTextField.text, let name = nameTextField.text else {return}
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+            if error != nil{
+                print(error!)
+                
+            }else{
+                
+                guard let uid = user?.uid else {return}
+                let ref = Database.database().reference(fromURL: "https://chatsenger.firebaseio.com/")
+                let usersReference = ref.child("users").child(uid)
+                let values = ["name": name, "email": email]
+                usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+                    if err != nil{
+                        print(err!)
+                        
+                    }else{
+                        self.dismiss(animated: true, completion: nil)
+                        print("Saved user successfully into Firebase db")
+                    }
+                })
+            }
+        }
+    }
     
     
     let nameTextField: UITextField = {
@@ -73,15 +133,23 @@ class LoginController: UIViewController {
     }()
     
     
-    let profileImageView: UIImageView = {
+    lazy var profileImageView: UIImageView = {
        
         let imageView = UIImageView()
         imageView.image = UIImage(named: "messenger")
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImageView)))
+        imageView.isUserInteractionEnabled = true
         return imageView
 
     }()
+    
+    
+    func handleSelectProfileImageView(){
+        
+    }
     
     lazy var loginRegisterSegmentedControl: UISegmentedControl = {
         

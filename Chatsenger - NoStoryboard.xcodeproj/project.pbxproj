@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D2E9BCE2995019C9BB1B7E1 /* Pods_Chatsenger___NoStoryboard.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC79DA4CA8902410337E8730 /* Pods_Chatsenger___NoStoryboard.framework */; };
+		D13B4D381F94CC5700B4364D /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4D371F94CC5700B4364D /* NewMessageController.swift */; };
+		D13B4D3A1F94CFEA00B4364D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4D391F94CFEA00B4364D /* User.swift */; };
 		D1D646F01F9486150010A541 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D646EF1F9486150010A541 /* AppDelegate.swift */; };
-		D1D646F21F9486150010A541 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D646F11F9486150010A541 /* ViewController.swift */; };
+		D1D646F21F9486150010A541 /* MessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D646F11F9486150010A541 /* MessagesController.swift */; };
 		D1D646F51F9486150010A541 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1D646F31F9486150010A541 /* Main.storyboard */; };
 		D1D646F71F9486150010A541 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1D646F61F9486150010A541 /* Assets.xcassets */; };
 		D1D646FA1F9486150010A541 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1D646F81F9486150010A541 /* LaunchScreen.storyboard */; };
@@ -17,9 +20,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07DF13140FD5073D89A2F194 /* Pods-Chatsenger - NoStoryboard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chatsenger - NoStoryboard.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chatsenger - NoStoryboard/Pods-Chatsenger - NoStoryboard.debug.xcconfig"; sourceTree = "<group>"; };
+		AC79DA4CA8902410337E8730 /* Pods_Chatsenger___NoStoryboard.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Chatsenger___NoStoryboard.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0C5565A67D63D34E7BB91CC /* Pods-Chatsenger - NoStoryboard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chatsenger - NoStoryboard.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chatsenger - NoStoryboard/Pods-Chatsenger - NoStoryboard.release.xcconfig"; sourceTree = "<group>"; };
+		D13B4D371F94CC5700B4364D /* NewMessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
+		D13B4D391F94CFEA00B4364D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D1D646EC1F9486150010A541 /* Chatsenger - NoStoryboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chatsenger - NoStoryboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D646EF1F9486150010A541 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D1D646F11F9486150010A541 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D1D646F11F9486150010A541 /* MessagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesController.swift; sourceTree = "<group>"; };
 		D1D646F41F9486150010A541 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D1D646F61F9486150010A541 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1D646F91F9486150010A541 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -33,17 +41,62 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D2E9BCE2995019C9BB1B7E1 /* Pods_Chatsenger___NoStoryboard.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		35A7108B72BD1EE45D7010DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AC79DA4CA8902410337E8730 /* Pods_Chatsenger___NoStoryboard.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8FBDDB0873DE277CA6A15D86 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				07DF13140FD5073D89A2F194 /* Pods-Chatsenger - NoStoryboard.debug.xcconfig */,
+				D0C5565A67D63D34E7BB91CC /* Pods-Chatsenger - NoStoryboard.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D13B4D331F94CA2700B4364D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D1D646F11F9486150010A541 /* MessagesController.swift */,
+				D1D647011F9487DC0010A541 /* LoginController.swift */,
+				D13B4D371F94CC5700B4364D /* NewMessageController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D13B4D341F94CA5D00B4364D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D13B4D361F94CA7A00B4364D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D13B4D391F94CFEA00B4364D /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D1D646E31F9486150010A541 = {
 			isa = PBXGroup;
 			children = (
 				D1D646EE1F9486150010A541 /* Chatsenger - NoStoryboard */,
 				D1D646ED1F9486150010A541 /* Products */,
+				8FBDDB0873DE277CA6A15D86 /* Pods */,
+				35A7108B72BD1EE45D7010DC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,9 +111,10 @@
 		D1D646EE1F9486150010A541 /* Chatsenger - NoStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				D13B4D361F94CA7A00B4364D /* Model */,
+				D13B4D341F94CA5D00B4364D /* View */,
+				D13B4D331F94CA2700B4364D /* Controller */,
 				D1D646EF1F9486150010A541 /* AppDelegate.swift */,
-				D1D646F11F9486150010A541 /* ViewController.swift */,
-				D1D647011F9487DC0010A541 /* LoginController.swift */,
 				D1D646F31F9486150010A541 /* Main.storyboard */,
 				D1D646F61F9486150010A541 /* Assets.xcassets */,
 				D1D646F81F9486150010A541 /* LaunchScreen.storyboard */,
@@ -77,9 +131,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1D646FE1F9486150010A541 /* Build configuration list for PBXNativeTarget "Chatsenger - NoStoryboard" */;
 			buildPhases = (
+				EC70CA55A18C21B331CB5FC7 /* [CP] Check Pods Manifest.lock */,
 				D1D646E81F9486150010A541 /* Sources */,
 				D1D646E91F9486150010A541 /* Frameworks */,
 				D1D646EA1F9486150010A541 /* Resources */,
+				85E7BE02C59FAD56FB6C3863 /* [CP] Embed Pods Frameworks */,
+				48C68F594A5A0798E566E48C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -138,13 +195,63 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		48C68F594A5A0798E566E48C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chatsenger - NoStoryboard/Pods-Chatsenger - NoStoryboard-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		85E7BE02C59FAD56FB6C3863 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Chatsenger - NoStoryboard/Pods-Chatsenger - NoStoryboard-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC70CA55A18C21B331CB5FC7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D1D646E81F9486150010A541 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1D646F21F9486150010A541 /* ViewController.swift in Sources */,
+				D13B4D381F94CC5700B4364D /* NewMessageController.swift in Sources */,
+				D1D646F21F9486150010A541 /* MessagesController.swift in Sources */,
 				D1D647021F9487DC0010A541 /* LoginController.swift in Sources */,
+				D13B4D3A1F94CFEA00B4364D /* User.swift in Sources */,
 				D1D646F01F9486150010A541 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +387,7 @@
 		};
 		D1D646FF1F9486150010A541 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07DF13140FD5073D89A2F194 /* Pods-Chatsenger - NoStoryboard.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -295,6 +403,7 @@
 		};
 		D1D647001F9486150010A541 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0C5565A67D63D34E7BB91CC /* Pods-Chatsenger - NoStoryboard.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
