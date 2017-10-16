@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>820172942912-1vminmghmc26r05el59clh2p5mk9t0mf.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.820172942912-1vminmghmc26r05el59clh2p5mk9t0mf</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBx_9fI5wiuvLqRhC3oR6f7Jea2I38CL-k</string>
+	<key>GCM_SENDER_ID</key>
+	<string>820172942912</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>KevinVu.Chatsenger---NoStoryboard</string>
+	<key>PROJECT_ID</key>
+	<string>chatsenger</string>
+	<key>STORAGE_BUCKET</key>
+	<string>chatsenger.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:820172942912:ios:7f5f7ec253191daf</string>
+	<key>DATABASE_URL</key>
+	<string>https://chatsenger.firebaseio.com</string>
+</dict>
+</plist>
