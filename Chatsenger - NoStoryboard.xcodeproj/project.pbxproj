@@ -11,6 +11,7 @@
 		D13B4D381F94CC5700B4364D /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4D371F94CC5700B4364D /* NewMessageController.swift */; };
 		D13B4D3A1F94CFEA00B4364D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4D391F94CFEA00B4364D /* User.swift */; };
 		D13B4D3C1F94E2C700B4364D /* LoginController+handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4D3B1F94E2C700B4364D /* LoginController+handlers.swift */; };
+		D13B4D3F1F94FEC700B4364D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4D3E1F94FEC700B4364D /* Extension.swift */; };
 		D1D646F01F9486150010A541 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D646EF1F9486150010A541 /* AppDelegate.swift */; };
 		D1D646F21F9486150010A541 /* MessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D646F11F9486150010A541 /* MessagesController.swift */; };
 		D1D646F51F9486150010A541 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1D646F31F9486150010A541 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		D13B4D371F94CC5700B4364D /* NewMessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
 		D13B4D391F94CFEA00B4364D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D13B4D3B1F94E2C700B4364D /* LoginController+handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginController+handlers.swift"; sourceTree = "<group>"; };
+		D13B4D3E1F94FEC700B4364D /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		D1D646EC1F9486150010A541 /* Chatsenger - NoStoryboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chatsenger - NoStoryboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D646EF1F9486150010A541 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1D646F11F9486150010A541 /* MessagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesController.swift; sourceTree = "<group>"; };
@@ -93,6 +95,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		D13B4D3D1F94FEB900B4364D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D13B4D3E1F94FEC700B4364D /* Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		D1D646E31F9486150010A541 = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +124,7 @@
 		D1D646EE1F9486150010A541 /* Chatsenger - NoStoryboard */ = {
 			isa = PBXGroup;
 			children = (
+				D13B4D3D1F94FEB900B4364D /* Extension */,
 				D13B4D361F94CA7A00B4364D /* Model */,
 				D13B4D341F94CA5D00B4364D /* View */,
 				D13B4D331F94CA2700B4364D /* Controller */,
@@ -253,6 +264,7 @@
 			files = (
 				D13B4D381F94CC5700B4364D /* NewMessageController.swift in Sources */,
 				D1D646F21F9486150010A541 /* MessagesController.swift in Sources */,
+				D13B4D3F1F94FEC700B4364D /* Extension.swift in Sources */,
 				D13B4D3C1F94E2C700B4364D /* LoginController+handlers.swift in Sources */,
 				D1D647021F9487DC0010A541 /* LoginController.swift in Sources */,
 				D13B4D3A1F94CFEA00B4364D /* User.swift in Sources */,
@@ -397,6 +409,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6MD343B76Q;
 				INFOPLIST_FILE = "Chatsenger - NoStoryboard/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "KevinVu.Chatsenger---NoStoryboard";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -413,6 +426,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6MD343B76Q;
 				INFOPLIST_FILE = "Chatsenger - NoStoryboard/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "KevinVu.Chatsenger---NoStoryboard";
 				PRODUCT_NAME = "$(TARGET_NAME)";

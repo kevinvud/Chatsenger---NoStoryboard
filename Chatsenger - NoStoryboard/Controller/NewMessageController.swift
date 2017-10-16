@@ -54,18 +54,42 @@ class NewMessageController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 75
+    }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Use this only when haven't register cell
 //        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellID)
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as? UserCell
         
         
         let user = users[indexPath.row]
-        cell.textLabel?.text = user.name
-        cell.detailTextLabel?.text = user.email
-        return cell
+        cell?.textLabel?.text = user.name
+        cell?.detailTextLabel?.text = user.email
+//        cell.imageView?.contentMode = .scaleAspectFill
+        //cell.imageView?.image = UIImage(named: "profile")
+        
+        if let profileImageUrl = user.profileImageUrl{
+            
+            cell?.profileImageView.loadImagesUsingCacheWithUrlString(urlString: profileImageUrl)
+//            let url = URL(string: profileImageUrl)
+//            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+//                if error != nil{
+//                    print(error)
+//                    return
+//                }else{
+//                    DispatchQueue.main.async {
+//
+//                        cell?.profileImageView.image = UIImage(data: data!)
+//                        //cell? .setNeedsLayout()
+//                    }
+//
+//                }
+//            }).resume()
+            
+        }
+        return cell!
         
         
     }
@@ -75,8 +99,35 @@ class NewMessageController: UITableViewController {
 
 
 class UserCell: UITableViewCell{
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        textLabel?.frame = CGRect(x: 68, y: (textLabel?.frame.origin.y)! - 2, width: (textLabel?.frame.width)!, height: (textLabel?.frame.height)!)
+        detailTextLabel?.frame = CGRect(x: 68, y: (detailTextLabel?.frame.origin.y)! + 2, width: (detailTextLabel?.frame.width)!, height: (detailTextLabel?.frame.height)!)
+        
+    }
+    
+    var profileImageView: UIImageView = {
+        let imageView = UIImageView()
+//        imageView.image = UIImage(named: "")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.cornerRadius = 25
+        imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
+        addSubview(profileImageView)
+        
+        profileImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 8).isActive = true
+        profileImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        profileImageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
