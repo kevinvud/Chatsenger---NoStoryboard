@@ -11,6 +11,7 @@ import Firebase
 
 class MessagesController: UITableViewController {
 
+    let cellId = "cellId"
     override func viewDidLoad() {
         super.viewDidLoad()
         let image = UIImage(named: "newmessage")
@@ -19,34 +20,72 @@ class MessagesController: UITableViewController {
         
         checkIfUserIsLoggedIn()
         
-        observerMessages()
+       // observerMessages()
         
+        tableView.register(UserCell.self, forCellReuseIdentifier: cellId)
         
     }
     
     var messages = [Message]()
+//    var messagesDictionary = [String: Message]()
     
-    func observerMessages(){
-        let ref = Database.database().reference().child("messages")
+    
+    func observerUserMessages(){
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let ref = Database.database().reference().child("user-messages").child(uid)
         ref.observe(.childAdded, with: { (snapshot) in
-            if let dictionary = snapshot.value as? [String: Any]{
-                let message = Message(dictionary: dictionary)
-                self.messages.append(message)
-                DispatchQueue.main.async {
-                     self.tableView.reloadData()
+            let messageId = snapshot.key
+            let messagesReference = Database.database().reference().child("messages").child(messageId)
+            messagesReference.observeSingleEvent(of: .value, with: { (snapshot) in
+                print(snapshot)
+                if let dictionary = snapshot.value as? [String: Any]{
+                    let message = Message(dictionary: dictionary)
+                    self.messages.insert(message, at: 0)
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                 }
-            }
-            
+            }, withCancel: nil)
+
+           
         }, withCancel: nil)
         
+        
     }
+    
+//    func observerMessages(){
+//        let ref = Database.database().reference().child("messages")
+//        ref.observe(.childAdded, with: { (snapshot) in
+//          
+//            if let dictionary = snapshot.value as? [String: Any]{
+//                
+//                let message = Message(dictionary: dictionary)
+//                //self.messages.append(message)
+//                self.messages.insert(message, at: 0)
+//                
+//                DispatchQueue.main.async {
+//                     self.tableView.reloadData()
+//                }
+//            }
+//            
+//        }, withCancel: nil)
+//        
+//    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return messages.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! UserCell
+        let message = messages[indexPath.row]
+        cell.message = message
+        return cell
         
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 72
     }
     @objc func handleNewMessage(){
         let newMessageController = NewMessageController()
@@ -80,11 +119,14 @@ class MessagesController: UITableViewController {
     }
     
     func setupNavBarWithUser(_ user: User){
-        //self.navigationItem.title = user.name
+        
+        messages.removeAll()
+        tableView.reloadData()
+        
+        observerUserMessages()
         
         let titleView = UIView()
         titleView.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
-        //titleView.backgroundColor = UIColor.red
         
         let containerView = UIView()
         containerView.translatesAutoresizingMaskIntoConstraints = false
@@ -125,16 +167,15 @@ class MessagesController: UITableViewController {
         
         self.navigationItem.titleView = titleView
         
-//        titleView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showChatControllerForUser(_:))))
         
     }
     
-    @objc func showChatControllerForUser(user: User){
+    func showChatControllerForUser(user: User){
         let chatLogController = ChatLogController(collectionViewLayout: UICollectionViewFlowLayout())
         chatLogController.user = user
 
         //similar to perform segue
-        navigationController?.pushViewController(chatLogController, animated: false)
+        navigationController?.pushViewController(chatLogController, animated: true)
         
         
     }
