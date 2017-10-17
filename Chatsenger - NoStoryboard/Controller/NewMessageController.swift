@@ -57,6 +57,19 @@ class NewMessageController: UITableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 75
     }
+    
+    var messagesController: MessagesController?
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        dismiss(animated: true) {
+            let user = self.users[indexPath.row]
+            self.messagesController?.showChatControllerForUser(user: user)
+            
+        }
+    }
+    
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Use this only when haven't register cell
 //        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellID)
@@ -72,21 +85,7 @@ class NewMessageController: UITableViewController {
         
         if let profileImageUrl = user.profileImageUrl{
             
-            cell?.profileImageView.loadImagesUsingCacheWithUrlString(urlString: profileImageUrl)
-//            let url = URL(string: profileImageUrl)
-//            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-//                if error != nil{
-//                    print(error)
-//                    return
-//                }else{
-//                    DispatchQueue.main.async {
-//
-//                        cell?.profileImageView.image = UIImage(data: data!)
-//                        //cell? .setNeedsLayout()
-//                    }
-//
-//                }
-//            }).resume()
+            cell?.profileImageView.loadImagesUsingCacheWithUrlString(profileImageUrl)
             
         }
         return cell!

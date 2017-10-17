@@ -12,6 +12,8 @@
 		D13B4D3A1F94CFEA00B4364D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4D391F94CFEA00B4364D /* User.swift */; };
 		D13B4D3C1F94E2C700B4364D /* LoginController+handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4D3B1F94E2C700B4364D /* LoginController+handlers.swift */; };
 		D13B4D3F1F94FEC700B4364D /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4D3E1F94FEC700B4364D /* Extension.swift */; };
+		D13B4D411F95A04000B4364D /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4D401F95A04000B4364D /* ChatLogController.swift */; };
+		D13B4D431F95D30300B4364D /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13B4D421F95D30300B4364D /* Message.swift */; };
 		D1D646F01F9486150010A541 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D646EF1F9486150010A541 /* AppDelegate.swift */; };
 		D1D646F21F9486150010A541 /* MessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D646F11F9486150010A541 /* MessagesController.swift */; };
 		D1D646F51F9486150010A541 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1D646F31F9486150010A541 /* Main.storyboard */; };
@@ -29,6 +31,8 @@
 		D13B4D391F94CFEA00B4364D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D13B4D3B1F94E2C700B4364D /* LoginController+handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginController+handlers.swift"; sourceTree = "<group>"; };
 		D13B4D3E1F94FEC700B4364D /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		D13B4D401F95A04000B4364D /* ChatLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
+		D13B4D421F95D30300B4364D /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		D1D646EC1F9486150010A541 /* Chatsenger - NoStoryboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chatsenger - NoStoryboard.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1D646EF1F9486150010A541 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1D646F11F9486150010A541 /* MessagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesController.swift; sourceTree = "<group>"; };
@@ -76,6 +80,7 @@
 				D13B4D371F94CC5700B4364D /* NewMessageController.swift */,
 				D1D647011F9487DC0010A541 /* LoginController.swift */,
 				D13B4D3B1F94E2C700B4364D /* LoginController+handlers.swift */,
+				D13B4D401F95A04000B4364D /* ChatLogController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -91,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				D13B4D391F94CFEA00B4364D /* User.swift */,
+				D13B4D421F95D30300B4364D /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -262,8 +268,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D13B4D411F95A04000B4364D /* ChatLogController.swift in Sources */,
 				D13B4D381F94CC5700B4364D /* NewMessageController.swift in Sources */,
 				D1D646F21F9486150010A541 /* MessagesController.swift in Sources */,
+				D13B4D431F95D30300B4364D /* Message.swift in Sources */,
 				D13B4D3F1F94FEC700B4364D /* Extension.swift in Sources */,
 				D13B4D3C1F94E2C700B4364D /* LoginController+handlers.swift in Sources */,
 				D1D647021F9487DC0010A541 /* LoginController.swift in Sources */,
