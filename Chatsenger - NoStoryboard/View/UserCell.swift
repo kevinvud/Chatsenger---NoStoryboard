@@ -15,7 +15,7 @@ class UserCell: UITableViewCell{
         didSet {
             setupNameAndProfileImage()
             detailTextLabel?.text = message?.text
-            if let seconds = message?.timestamp?.doubleValue{
+            if let seconds = message?.timestamp.doubleValue{
                 let timestampDate = NSDate(timeIntervalSince1970: (seconds))
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "hh:mm:ss a"
@@ -25,6 +25,7 @@ class UserCell: UITableViewCell{
     }
     
     private func setupNameAndProfileImage(){
+        
         let chatPartnerId: String?
         
         if message?.fromId == Auth.auth().currentUser?.uid{
@@ -32,7 +33,6 @@ class UserCell: UITableViewCell{
         }else{
             chatPartnerId = message?.fromId
         }
-        
         
         if let id = chatPartnerId {
             let ref = Database.database().reference().child("users").child(id)

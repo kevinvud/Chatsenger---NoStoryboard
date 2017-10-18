@@ -67,9 +67,7 @@ class NewMessageController: UITableViewController {
             
         }
     }
-    
-    
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Use this only when haven't register cell
 //        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: cellID)
