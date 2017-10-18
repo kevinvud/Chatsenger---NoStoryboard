@@ -9,12 +9,15 @@
 import UIKit
 
 class ChatMessageCell: UICollectionViewCell {
+    var chatLogController: ChatLogController?
+    
     let textView: UITextView = {
         let tv = UITextView()
         tv.font = UIFont.systemFont(ofSize: 16)
         tv.translatesAutoresizingMaskIntoConstraints = false
         tv.backgroundColor = UIColor.clear
         tv.textColor = UIColor.white
+        tv.isEditable = false
         return tv
         
     }()
@@ -38,16 +41,27 @@ class ChatMessageCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
-    let messageImageView: UIImageView = {
+    lazy var messageImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 16
         imageView.layer.masksToBounds = true
         imageView.contentMode = .scaleAspectFill
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleZoomTap)))
+        imageView.isUserInteractionEnabled = true
         return imageView
         
         
     }()
+    
+    @objc func handleZoomTap(tapGesture: UITapGestureRecognizer){
+        if let imageView = tapGesture.view as? UIImageView{
+            self.chatLogController?.performZoomInForStartingImageView(startingImageView: imageView)
+        }
+  
+        
+    }
+    
     
     var bubleWidthAnchor: NSLayoutConstraint?
     var bubleViewRightAnchor: NSLayoutConstraint?
