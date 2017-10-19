@@ -26,19 +26,26 @@ class LoginController: UIViewController {
     
     lazy var loginRegisterButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = UIColor(r: 80, g: 101, b: 161)
+        button.backgroundColor = UIColor(r: 125, g: 168, b: 98)
         button.setTitle("Register", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.layer.cornerRadius = 5
+        button.layer.masksToBounds = true
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         
         button.addTarget(self, action: #selector(handleLoginRegister), for: .touchUpInside)
-        
-        
-        
-        
-        
         return button
+        
+    }()
+    
+    lazy var backgroundImage: UIImageView = {
+        
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "backgroundPhoto")
+        imageView.contentMode = .scaleAspectFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
         
     }()
     
@@ -108,7 +115,7 @@ class LoginController: UIViewController {
     lazy var profileImageView: UIImageView = {
        
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "messenger")
+        imageView.image = UIImage(named: "chat")
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -142,6 +149,8 @@ class LoginController: UIViewController {
         
         //change height of textField
         nameTextFieldHeightAnchor?.isActive = false
+        nameTextField.placeholder = loginRegisterSegmentedControl.selectedSegmentIndex == 0 ? "" : "Name"
+
         nameTextFieldHeightAnchor = nameTextField.heightAnchor.constraint(equalTo: inputsContainerView.heightAnchor, multiplier: loginRegisterSegmentedControl.selectedSegmentIndex == 0 ? 0: 1/3)
         nameTextFieldHeightAnchor?.isActive = true
         
@@ -160,11 +169,13 @@ class LoginController: UIViewController {
         
         view.backgroundColor = UIColor(r: 61, g: 91, b: 151)
         
+        view.addSubview(backgroundImage)
         view.addSubview(inputsContainerView)
         view.addSubview(loginRegisterButton)
         view.addSubview(profileImageView)
         view.addSubview(loginRegisterSegmentedControl)
         
+        setupBackgroundImage()
         setupInputContrainerView()
         setupLoginRegisterButton()
         setupProfileImageView()
@@ -172,30 +183,30 @@ class LoginController: UIViewController {
         
         
     }
-    
+    func setupBackgroundImage(){
+        backgroundImage.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        backgroundImage.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        backgroundImage.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+
+    }
+
     func setupLoginRegisterSegmentedControl(){
         
         loginRegisterSegmentedControl.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         loginRegisterSegmentedControl.bottomAnchor.constraint(equalTo: inputsContainerView.topAnchor, constant: -12).isActive = true
         loginRegisterSegmentedControl.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor, multiplier: 1)   .isActive = true
         loginRegisterSegmentedControl.heightAnchor.constraint(equalToConstant: 36).isActive = true
-        
-        
+
     }
-    
-    
     func setupProfileImageView(){
         
         profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        profileImageView.bottomAnchor.constraint(equalTo: loginRegisterSegmentedControl.topAnchor, constant: -30).isActive = true
+        profileImageView.bottomAnchor.constraint(equalTo: loginRegisterSegmentedControl.topAnchor, constant: -50).isActive = true
         profileImageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         profileImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        
-        
-        
     }
-    
-    
+
     var inputsContainerViewHeightAnchor: NSLayoutConstraint?
     var nameTextFieldHeightAnchor: NSLayoutConstraint?
     var emailTextFieldHeightAnchor: NSLayoutConstraint?

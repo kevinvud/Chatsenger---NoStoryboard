@@ -214,6 +214,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIImag
                         self.uploadToFireBaseStorageUsingImage(image: thumbnailImage, completion: { (imageUrl) in
                             let properties: [String: Any] = ["imageUrl": imageUrl,"videoUrl": videoUrl, "imageWidth": thumbnailImage.size.width, "imageHeight": thumbnailImage.size.height]
                             self.sendMessageWithProperties(properties: properties)
+                            self.inputTextField.resignFirstResponder()
                         })
 
                     }
@@ -286,13 +287,14 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIImag
         if let inputTextField = inputTextField.text, inputTextField != "" {
             let properties = ["text": inputTextField]
             sendMessageWithProperties(properties: properties as [String : Any])
+            self.inputTextField.resignFirstResponder()
         }
     }
     
     private func sendMessgeWithImageUrl(imageUrl: String, image: UIImage){
         let properties: [String: Any] = ["imageUrl": imageUrl, "imageWidth": image.size.width, "imageHeight": image.size.height]
         sendMessageWithProperties(properties: properties)
-        
+        self.inputTextField.resignFirstResponder()
     }
     
     private func sendMessageWithProperties(properties: [String: Any]){
@@ -327,7 +329,7 @@ class ChatLogController: UICollectionViewController, UITextFieldDelegate, UIImag
     var containerViewBottomAnchor: NSLayoutConstraint?
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        handleSend()
+        textField.resignFirstResponder()
         return true
     }
 }
