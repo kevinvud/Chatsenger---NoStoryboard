@@ -24,6 +24,8 @@ class MessagesController: UITableViewController {
         
         tableView.register(UserCell.self, forCellReuseIdentifier: cellId)
         
+        tableView.allowsMultipleSelectionDuringEditing = true
+        
     }
     
     var messages = [Message]()
@@ -42,6 +44,11 @@ class MessagesController: UITableViewController {
                 
             }, withCancel: nil)
             
+        }, withCancel: nil)
+        
+        ref.observe(.childRemoved, with: { (snapshot) in
+            self.messagesDictionary.removeValue(forKey: snapshot.key)
+            self.attemptReloadOfTable()
         }, withCancel: nil)
         
     }
@@ -120,9 +127,34 @@ class MessagesController: UITableViewController {
             
         }, withCancel: nil)
         
-        
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        guard let uid = Auth.auth().currentUser?.uid else{return}
+        
+       let message = self.messages[indexPath.row]
+        
+        if let chatPartnerId = message.chatPartnerId(){
+            Database.database().reference().child("user-messages").child(uid).child(chatPartnerId).removeValue(completionBlock: { (error, ref) in
+                if error != nil{
+                    print("failed to remove message")
+                }else{
+                    self.messagesDictionary.removeValue(forKey: chatPartnerId)
+                    self.attemptReloadOfTable()
+                    
+//                    self.messages.remove(at: indexPath.row)
+//                    self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                }
+            })
+        }
+       
+        
+        
+    }
     
     
     @objc func handleNewMessage(){
@@ -157,8 +189,9 @@ class MessagesController: UITableViewController {
     }
     
     func setupNavBarWithUser(_ user: User){
-        
         messages.removeAll()
+        messagesDictionary.removeAll()
+
         tableView.reloadData()
         
         observerUserMessages()
