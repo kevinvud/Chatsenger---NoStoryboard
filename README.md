@@ -32,4 +32,4 @@ This is a messenger app which is called Chatsenger. It provides instant messagin
 * Ability to select profile picture from user photo library
 * Real-time messaging 
 * Photo & video upload
-* Chat history
+* View chat history
